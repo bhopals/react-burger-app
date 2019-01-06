@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person.js';
 
+
 class App extends Component {
 
   state = {
@@ -77,10 +78,19 @@ class App extends Component {
     style.backgroundColor='red';
     }
 
+    const classes = [];
+    if(this.state.persons.length >=2) {
+      classes.push('red');
+    }
+
+    if(this.state.persons.length >=1) {
+      classes.push('bold');
+    }
+
     return (
       <div className="App">
-        <h1>TEST App</h1>
-        <p>This is really Working!!!</p>
+        <h1>Person Listing</h1>
+        <p className={classes.join(' ')}>This is really Working!!!</p>
         <button  style={style} onClick={this.togglePersonHandler}>Toggle Person</button>
          {person}
       </div>

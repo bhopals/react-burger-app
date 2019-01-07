@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person.js';
 
-
 class App extends Component {
 
   state = {
@@ -60,12 +59,17 @@ class App extends Component {
       font :'inherit',
       border:'1px solid blue',
       padding:'8px',
-      cursor:'pointer'
+      cursor:'pointer',
+      ':hover' : {
+        'backgroundColor':'lightgreen',
+        'color':'black'
+      }
     }
 
     let person = null;
     if(this.state.showPersons) {
-      person = (<div>
+      person = (
+      <div>
                 {
           this.state.persons.map((person, index) => {
             return <Person name={person.name} age={person.age} change={(event)=>this.onChangeHandler(event, person.id)} 
@@ -76,6 +80,7 @@ class App extends Component {
     </div>);
 
     style.backgroundColor='red';
+    
     }
 
     const classes = [];

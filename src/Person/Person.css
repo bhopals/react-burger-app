@@ -6,3 +6,8 @@
     text-align: center;
     box-shadow: 0 2px 3px #ccc;
 }
+
+.Button {
+    border-radius:5px;
+    border:1px solid #ccc;
+}

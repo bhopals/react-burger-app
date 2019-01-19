@@ -32,10 +32,15 @@ class App extends Component {
     this.setState({persons:persons});
   }
 
-  onTestChangeEventHandler = (key) => {
+  onTestChangeEventHandler = (key, id) => {
     const personIndex = this.state.persons.findIndex(person => {
       return person.id === id;
     });
+    const person = {
+      ...this.state.persons[personIndex]
+    }
+    const persons = this.state.persons.slice();
+    persons[personIndex] = person;
     persons.splice(personIndex, 1);
     this.setState({persons:persons});
   }
@@ -71,8 +76,8 @@ class App extends Component {
       <div>
                 {
           this.state.persons.map((person, index) => {
-            return <Person name={person.name} age={person.age} change={(event)=>this.onChangeHandler(event, person.id)} 
-            click = {()=>this.deletePersonHandler(index)} key={person.id}/>;
+            return <Person name={person.name} age={person.age} key={person.id} change={(event)=>this.onChangeHandler(event, person.id)} 
+            click = {()=>this.deletePersonHandler(index)} />;
           })
         }
         

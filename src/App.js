@@ -32,6 +32,14 @@ class App extends Component {
     this.setState({persons:persons});
   }
 
+  onTestChangeEventHandler = (key) => {
+    const personIndex = this.state.persons.findIndex(person => {
+      return person.id === id;
+    });
+    persons.splice(personIndex, 1);
+    this.setState({persons:persons});
+  }
+
   onChangeHandler = (event, id) => {
 
     const personIndex = this.state.persons.findIndex(person => {
